@@ -1,4 +1,5 @@
-# quiz-app
+# Quiz-app
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9W7q_JyDh7DBvoyLeafXExmAMr0XZNUYTVw&usqp=CAU">
 
 This template should help get you started developing with Vue 3 in Vite.
 
