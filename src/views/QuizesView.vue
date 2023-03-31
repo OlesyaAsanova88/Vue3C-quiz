@@ -1,10 +1,12 @@
 <script setup>
-  import q from "../data/quizes.json"
+  /*import q from "../data/quizes.json"*/
+  import { useQuizStore } from "../store/QuizStore"
   import {ref, watch} from "vue"
   import Card from  "../components/Card.vue"
   import gsap from "gsap"
 
-const quizes = ref(q)
+const quizStore = useQuizStore();
+const quizes = ref(quizStore)
 const search =ref("")
 
 watch(search, () => {
@@ -48,7 +50,7 @@ const afterLeave = () => {
       @enter="enter"
       >
         <Card
-         v-for="(quiz, index) in quizes" 
+         v-for="(quiz, index) in quizStore.quizes" 
          :key="quiz.id" 
          :quiz="quiz" 
          :data-index="index"

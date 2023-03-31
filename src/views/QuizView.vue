@@ -4,11 +4,13 @@ import QuizHeader from '../components/QuizHeader.vue'
 import Result from '../components/Result.vue'
 import { useRoute } from "vue-router"
 import { ref, watch, computed } from "vue"
-import quizes from "../data/quizes.json"
+/*import quizes from "../data/quizes.json"*/
+import { useQuizStore } from "../store/QuizStore"
 
+const quizStore = useQuizStore();
 const route = useRoute()
 const quizId = parseInt(route.params.id)
-const quiz = quizes.find(q => q.id === quizId)
+const quiz = quizStore.quizes.find(q => q.id === quizId)
 const currentQuestionIndex = ref(0)
 const numberOfCorrectAnswers = ref(0)
 const showResults = ref(false)
@@ -60,13 +62,8 @@ const onOptionSelected = (isCorrect) => {
       :numberOfCorrectAnswers="numberOfCorrectAnswers"
       />
     </div>
-    
-    
-
-    
-  </div>
-
   
+  </div>
 
 </template>
 
